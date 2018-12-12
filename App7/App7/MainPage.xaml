@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="App7.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:App7">
+
+    <StackLayout
+        Padding="10">
+        <ScrollView>
+            <ListView
+                x:Name="listView"
+                HasUnevenRows="True"
+                ItemsSource="{Binding Items}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label
+                                    FontSize="20"
+                                    Text="{Binding Shop}"
+                                    TextColor="Blue" />
+                                <Label
+                                    FontSize="20"
+                                    Text="{Binding Name}"
+                                    TextColor="Red" />
+                                <Label
+                                    Text="{Binding Price}" />
+                                <Label
+                                    Text="{Binding Amount}" />
+                                <Label
+                                    Text="{Binding Description}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="*" />
+                <ColumnDefinition
+                    Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="*" />
+                <RowDefinition
+                    Height="*" />
+                <RowDefinition
+                    Height="*" />
+                <RowDefinition
+                    Height="*" />
+            </Grid.RowDefinitions>
+            <Entry
+                x:Name="shopEntry"
+                Grid.Row="0"
+                Grid.Column="0"
+                Placeholder="type shop" />
+            <Entry
+                x:Name="nameEntry"
+                Grid.Row="1"
+                Grid.Column="0"
+                Placeholder="type name" />
+            <Entry
+                x:Name="priceEntry"
+                Grid.Row="0"
+                Grid.Column="1"
+                Placeholder="type price" />
+            <Entry
+                x:Name="amountEntry"
+                Grid.Row="1"
+                Grid.Column="1"
+                Placeholder="type amount" />
+            <Entry
+                x:Name="descriptionEntry"
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Placeholder="type description" />
+            <Button
+                x:Name="addButton"
+                Grid.Row="3"
+                Grid.Column="0"
+                Clicked="AddItem"
+                Text="Add" />
+            <Button
+                x:Name="removeButton"
+                Grid.Row="3"
+                Grid.Column="1"
+                Clicked="RemoveItem"
+                Text="Remove" />
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
